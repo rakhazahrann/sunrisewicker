@@ -1,0 +1,36 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+.opencode/
+
+# source catalog files not served by the site
+public/images/logo/*.tif
+public/images/products/Imange/*
+!public/images/products/Imange/20200605_133616 banana leaf.jpg
+public/images/products/*.docx
+public/images/products/*.xlsx
+public/images/products/*.pdf
+!public/images/products/Product Catalog_r1.pdf
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+request.md

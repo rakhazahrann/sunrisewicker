@@ -1,0 +1,30 @@
+---
+import type { Lang } from '../data/ui';
+import { content } from '../data/ui';
+import { ArrowUpRight } from '@lucide/astro';
+interface Props { lang: Lang; whatsapp: string }
+const { lang, whatsapp } = Astro.props;
+const t = content[lang];
+---
+<section class="contact-block">
+  <div class="contact-copy" data-reveal>
+    <p class="eyebrow">{t.contact.eyebrow}</p>
+    <h2>{lang === 'en' ? <>Begin a lasting<br/><span>collaboration.</span></> : <>Mulai kolaborasi<br/><span>jangka panjang.</span></>}</h2>
+  </div>
+  <div class="contact-side" data-reveal>
+    <p>{t.contact.text}</p>
+    <a href={whatsapp}>{lang === 'en' ? 'Request a material sample' : 'Minta sampel material'} <ArrowUpRight size={20} /></a>
+    <a href="mailto:sunrisewicker@gmail.com">sunrisewicker@gmail.com <ArrowUpRight size={20} /></a>
+  </div>
+</section>
+
+<style>
+  .contact-block { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(3rem,8vw,9rem); align-items: end; padding: clamp(6rem,11vw,11rem) var(--pad); color: var(--ink); background: #e7dfcf }
+  .contact-block .eyebrow { color: var(--ink) }
+  .contact-copy h2 { margin: 0; font: 600 clamp(4.2rem,8vw,8rem)/.82 var(--display); letter-spacing: -.04em }
+  .contact-copy h2 span { color: var(--orange); font-style: italic }
+  .contact-side > p { max-width: 500px; margin: 0 0 2.5rem; line-height: 1.7 }
+  .contact-side a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.2rem 0; border-top: 1px solid var(--ink); font-size: .8rem; font-weight: 600 }
+  .contact-side a:last-child { border-bottom: 1px solid var(--ink) }
+  @media (max-width: 750px) { .contact-block { grid-template-columns: 1fr; gap: 3rem } .contact-copy h2 { font-size: clamp(4rem,20vw,7rem) } }
+</style>

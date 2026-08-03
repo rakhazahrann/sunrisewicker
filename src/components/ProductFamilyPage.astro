@@ -1,0 +1,342 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBlock from './ContactBlock.astro';
+import { ArrowUpRight } from '@lucide/astro';
+import { content, pathFor, type Lang } from '../data/ui';
+import { families, familyPath, products, type Family } from '../data/products';
+interface Props { lang: Lang; family: Family }
+const { lang, family } = Astro.props;
+const t = content[lang];
+const items = products.filter((product) => product.family === family.name);
+const surfaceNames: Record<string, string> = { RR: 'Regular Rib', FR: 'Fine Rib', IRR: 'Irregular Rib', TX: 'Textured', SM: 'Smooth', HL: 'Hairline', EBS: 'Embossed', Twisted: 'Twisted' };
+const alternate = lang === 'en' ? 'id' : 'en';
+const whatsapp = `https://wa.me/6281130939?text=${encodeURIComponent(lang === 'en' ? `Hello SUNRISE, I am interested in ${family.name}.` : `Halo SUNRISE, saya tertarik dengan ${family.name}.`)}`;
+const labels = lang === 'en' ? {
+  back:'All profiles', variants:'available variants', dimension:'Dimension range', surfaces:'Surface options', colors:'colors', inquire:'Ask about this color', browse:'Browse collections', prev:'Previous collection', next:'Next collection'
+} : {
+  back:'Semua profil', variants:'varian tersedia', dimension:'Rentang dimensi', surfaces:'Pilihan permukaan', colors:'warna', inquire:'Tanyakan warna ini', browse:'Jelajahi koleksi', prev:'Koleksi sebelumnya', next:'Koleksi berikutnya'
+};
+const index = families.findIndex((item) => item.slug === family.slug);
+const previous = families[(index - 1 + families.length) % families.length];
+const next = families[(index + 1) % families.length];
+---
+<BaseLayout lang={lang} page="products" title={`${family.name} | SUNRISE`} description={`${family.name} SUNRISE synthetic wicker. ${family.detail}.`} canonicalPath={familyPath(lang, family.slug)} alternatePath={familyPath(alternate, family.slug)}>
+  <section class="family-hero">
+    <div class="family-copy" data-reveal>
+      <a class="back" href={pathFor(lang,'products')}><span aria-hidden="true">←</span> {labels.back}</a>
+      <p class="eyebrow">SUNRISE / {family.name}</p>
+      <h1 class="display">{family.name}</h1>
+      <p class="lede">{lang === 'en' ? 'A focused collection of colors and surface characters, engineered for consistent weaving and lasting outdoor performance.' : 'Koleksi warna dan karakter permukaan yang terarah, dirancang untuk anyaman konsisten dan performa outdoor tahan lama.'}</p>
+      <div class="family-facts">
+        <div><span>{labels.dimension}</span><strong>{family.spec}</strong></div>
+        <div><span>{labels.surfaces}</span><strong>{family.surfaces.join(' · ')}</strong></div>
+        <div><span>{labels.variants}</span><strong>{items.length}</strong></div>
+      </div>
+    </div>
+    <div class="family-visual" data-reveal>
+      <img src={family.image} alt={`${family.name} SUNRISE synthetic wicker`} />
+      <span>{String(index + 1).padStart(2,'0')} / 07</span>
+    </div>
+  </section>
+
+  <nav class="family-nav" aria-label={labels.browse}>
+    <div>{families.map((item) => <a class:list={{ active: item.slug === family.slug }} aria-current={item.slug === family.slug ? 'page' : undefined} href={familyPath(lang,item.slug)}>{item.name}</a>)}</div>
+  </nav>
+
+  <section class="variants">
+    <div class="catalog-heading" data-reveal>
+      <div><p class="eyebrow">{labels.browse}</p><h2 class="section-title">{items.length} {labels.colors}</h2></div>
+    </div>
+    <div class="variant-grid">{items.map((product, i) => <article class="variant-card" data-reveal>
+      <div class="variant-photo">
+        <img src={product.image} width="800" height="531" loading={i < 4 ? 'eager' : 'lazy'} alt={`${product.color} ${family.name} synthetic wicker`} />
+        <span class="surface-badge">{product.surface} / {surfaceNames[product.surface] ?? product.surface}</span>
+      </div>
+      <div class="variant-copy">
+        <div><p>{family.name}</p><h2>{product.color}</h2></div>
+        <dl><div><dt>{lang === 'en' ? 'Size' : 'Ukuran'}</dt><dd>{product.dimension}</dd></div><div><dt>{lang === 'en' ? 'Type' : 'Tipe'}</dt><dd>{product.category}</dd></div></dl>
+      </div>
+      <a class="variant-action" href={`https://wa.me/6281130939?text=${encodeURIComponent(lang === 'en' ? `Hello SUNRISE, I am interested in ${family.name}, color ${product.color}.` : `Halo SUNRISE, saya tertarik dengan ${family.name}, warna ${product.color}.`)}`} aria-label={`${labels.inquire}: ${product.color}`}><span>{labels.inquire}</span><ArrowUpRight size={17} stroke-width={1.8} /></a>
+    </article>)}</div>
+  </section>
+
+  <section class="collection-pager">
+    <a href={familyPath(lang,previous.slug)}><span>← {labels.prev}</span><strong>{previous.name}</strong></a>
+    <a href={familyPath(lang,next.slug)}><span>{labels.next} →</span><strong>{next.name}</strong></a>
+  </section>
+  <ContactBlock lang={lang} whatsapp={whatsapp} />
+</BaseLayout>
+
+<style>
+  /* FAMILY HERO */
+  .family-hero {
+    min-height: 720px;
+    padding: 130px max(24px, calc((100vw - var(--max)) / 2)) 60px;
+    display: grid;
+    grid-template-columns: 1fr .86fr;
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: center;
+    color: white;
+    background: var(--blue);
+  }
+  .family-copy .lede { max-width: 640px; margin: 2rem 0; color: #bfccd7 }
+  .back {
+    display: inline-flex;
+    gap: .6rem;
+    align-items: center;
+    margin-bottom: 3.5rem;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    transition: color .3s;
+  }
+  .back:hover { color: var(--gold-dark) }
+  .family-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr .65fr;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,.28);
+  }
+  .family-facts div { padding: 1.3rem 1rem 0 0 }
+  .family-facts span {
+    display: block;
+    color: #aebdca;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+  .family-facts strong {
+    font: 600 1.05rem var(--display);
+    text-transform: uppercase;
+  }
+  .family-visual { position: relative }
+  .family-visual img {
+    width: 100%;
+    aspect-ratio: .92;
+    object-fit: cover;
+    filter: saturate(.8) contrast(1.05);
+    border-radius: 42px 42px 12px 42px;
+  }
+  .family-visual > span {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--gold);
+    color: var(--ink);
+    padding: .6rem .9rem;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    border-radius: 999px;
+  }
+
+  /* FAMILY NAV — sticky */
+  .family-nav {
+    position: sticky;
+    top: 62px;
+    z-index: 12;
+    padding: 10px 18px;
+    pointer-events: none;
+    border-bottom: 1px solid var(--line);
+    background: rgba(243,241,233,.94);
+    backdrop-filter: blur(16px);
+  }
+  .family-nav > div {
+    max-width: var(--max);
+    margin: auto;
+    display: flex;
+    gap: 0;
+    overflow: auto;
+    pointer-events: auto;
+    scrollbar-width: none;
+  }
+  .family-nav a {
+    white-space: nowrap;
+    padding: .7rem 1.1rem;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    position: relative;
+    transition: color .3s;
+  }
+  .family-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1.1rem;
+    right: 1.1rem;
+    height: 1.5px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform .3s;
+  }
+  .family-nav a:hover { color: var(--gold-dark) }
+  .family-nav a.active { color: var(--ink) }
+  .family-nav a.active::after { transform: scaleX(1) }
+
+  /* CATALOG */
+  .variants {
+    max-width: var(--max);
+    margin: auto;
+    padding: 6rem 24px;
+  }
+  .catalog-heading {
+    display: grid;
+    grid-template-columns: 1fr .6fr;
+    gap: 3rem;
+    align-items: end;
+    margin-bottom: 3rem;
+  }
+  .catalog-heading > p { color: var(--muted); line-height: 1.7 }
+  /* VARIANT GRID */
+  .variant-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: dense;
+    gap: 1.5rem;
+    background: transparent;
+  }
+  .variant-card { background: var(--white); border: 1px solid var(--line); border-radius: 28px 28px 8px 28px; overflow: hidden; box-shadow: 0 12px 35px rgba(8,26,44,.06); transition: transform .3s, box-shadow .3s }
+  .variant-card:nth-child(3n + 2) { border-radius: 8px 28px 28px 28px; transform: translateY(22px) }
+  .variant-card:nth-child(3n) { border-radius: 28px 8px 28px 28px; transform: translateY(8px) }
+  .variant-card:hover { transform: translateY(-5px); box-shadow: 0 20px 48px rgba(8,26,44,.12) }
+  .variant-card:nth-child(8n + 1) { grid-column: span 2 }
+  .variant-card:nth-child(8n + 1) .variant-photo { height: 340px }
+  .variant-photo {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+  }
+  .variant-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s cubic-bezier(.4,0,.2,1);
+  }
+  .variant-card:hover .variant-photo img { transform: scale(1.05) }
+  .surface-badge {
+    position: absolute;
+    left: .8rem;
+    top: .8rem;
+    background: rgba(250,248,245,.92);
+    padding: .35rem .55rem;
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    border-radius: 999px;
+  }
+  .variant-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    margin: 0 1.1rem 1.1rem;
+    padding: .8rem 0;
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    transition: color .25s;
+  }
+  .variant-action i { font-style: normal; color: var(--gold) }
+  .variant-action :global(svg) { color: var(--gold); flex: 0 0 auto }
+  .variant-action:hover { color: var(--gold-dark) }
+  .variant-copy {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 1rem 1.1rem;
+    gap: 1rem;
+  }
+  .variant-copy p {
+    margin: 0;
+    font-size: .65rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .variant-copy h2 {
+    font: 700 1.3rem var(--display);
+    text-transform: uppercase;
+    margin: .3rem 0 0;
+  }
+  .variant-copy dl {
+    margin: 0;
+    display: grid;
+    gap: .4rem;
+    text-align: right;
+  }
+  .variant-copy dl div { display: flex; gap: .5rem }
+  .variant-copy dt {
+    font-size: .62rem;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .variant-copy dd {
+    margin: 0;
+    font-size: .75rem;
+    font-weight: 500;
+  }
+  /* COLLECTION PAGER */
+  .collection-pager {
+    max-width: var(--max);
+    margin: 0 auto 6rem;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .collection-pager a {
+    display: grid;
+    gap: .4rem;
+    padding: 2rem 0;
+    transition: background .3s, padding .3s;
+  }
+  .collection-pager a:last-child { text-align: right; border-left: 1px solid var(--line) }
+  .collection-pager a:hover { padding-left: 1.5rem; padding-right: 1.5rem; background: var(--white) }
+  .collection-pager span {
+    font-size: .7rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .collection-pager strong {
+    font: 700 clamp(1.4rem, 2.5vw, 2.2rem) var(--display);
+    text-transform: uppercase;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1050px) {
+    .variant-grid { grid-template-columns: repeat(2, 1fr) }
+    .variant-card:nth-child(8n + 1) { grid-column: auto }
+    .variant-card:nth-child(8n + 1) .variant-photo { height: 260px }
+    .variant-card:nth-child(3n + 2), .variant-card:nth-child(3n) { transform: none }
+  }
+  @media (max-width: 950px) {
+    .family-hero { grid-template-columns: 1fr; padding-top: 130px }
+    .family-visual { max-width: 560px }
+    .catalog-heading { grid-template-columns: 1fr }
+  }
+  @media (max-width: 650px) {
+    .family-hero { padding-left: 20px; padding-right: 20px }
+    .family-facts { grid-template-columns: 1fr 1fr }
+    .family-facts { grid-template-columns: 1fr }
+    .family-nav { top: 62px; padding: 8px 12px }
+    .variants { padding: 4rem 18px }
+    .variant-grid { grid-template-columns: 1fr }
+    .variant-photo { height: 220px }
+    .collection-pager { grid-template-columns: 1fr; margin-bottom: 4rem }
+    .collection-pager a:last-child { text-align: left; border-left: none; border-top: 1px solid var(--line) }
+  }
+</style>

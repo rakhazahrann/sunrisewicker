@@ -1,0 +1,7 @@
+---
+import ProductFamilyPage from '../../components/ProductFamilyPage.astro';
+import { families } from '../../data/products';
+export function getStaticPaths() { return families.map((family) => ({ params: { family: family.slug }, props: { family } })); }
+const { family } = Astro.props;
+---
+<ProductFamilyPage lang="en" family={family} />
