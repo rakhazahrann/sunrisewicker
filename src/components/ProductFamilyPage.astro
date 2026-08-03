@@ -136,14 +136,16 @@ const next = families[(index + 1) % families.length];
   /* FAMILY NAV — sticky */
   .family-nav {
     position: sticky;
-    top: 62px;
+    top: 70px;
     z-index: 12;
     padding: 10px 18px;
     pointer-events: none;
     border-bottom: 1px solid var(--line);
     background: rgba(243,241,233,.94);
     backdrop-filter: blur(16px);
+    transition: top .4s cubic-bezier(.4,0,.2,1);
   }
+  :global(body.header-hidden) .family-nav { top: 0 }
   .family-nav > div {
     max-width: var(--max);
     margin: auto;

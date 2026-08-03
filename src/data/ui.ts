@@ -6,9 +6,9 @@ export const content = {
     nav: { home: 'Home', about: 'About', products: 'Products', contact: 'Contact' },
     hero: { eyebrow: 'PE Synthetic Wicker / Made in Indonesia', title: 'Engineered to outlast the outdoors.', text: 'High-quality synthetic wicker shaped by advanced extrusion, thoughtful chemistry, and a deep understanding of woven furniture.', primary: 'Explore products', secondary: 'Talk to us' },
     benefits: ['Weather resistant', 'UV stabilized', '100% recyclable', 'Indoor & outdoor'],
-    about: { eyebrow: 'Made beyond standards', title: 'Material innovation, woven into every strand.', text: 'SUNRISE(TM) is a high-quality Polyethylene synthetic wicker for outdoor furniture and indoor applications. Our latest extrusion technology combines in-house color compounding, antioxidants, and light stabilizers for lasting performance.', link: 'Discover our process' },
+    about: { eyebrow: 'About SUNRISE', title: 'Made beyond standard quality.', text: 'SUNRISE(TM) is a high-quality Polyethylene (PE) synthetic wicker for outdoor furniture and indoor applications. It is highly durable, environmentally friendly, 100% recyclable, and resistant to harsh weather conditions and temperature differences.', link: 'About SUNRISE' },
     product: { eyebrow: 'Product system', title: 'One material. Seven profiles. Endless expressions.', text: 'Explore 88 carefully developed combinations of profile, color, dimension, and surface.', all: 'All profiles', search: 'Search color or profile', count: 'products', more: 'Load more', catalog: 'Download catalog', empty: 'No products match this filter.' },
-    aboutPage: { eyebrow: 'About SUNRISE', title: 'Built for weather. Designed for possibility.', lead: 'We manufacture PE synthetic wicker that gives furniture makers the freedom of natural texture without natural material limitations.', tech: 'Technology behind the texture', techText: 'Our extrusion process controls form, color, and finish with precision. In-house compounding builds character into each strand, while antioxidants and light stabilizers help protect material against demanding outdoor conditions and UV exposure.', responsible: 'A more responsible material', responsibleText: 'SUNRISE wicker is highly durable, environmentally friendly, and 100% recyclable. Long service life and material recoverability guide how we think about quality.' },
+    aboutPage: { eyebrow: 'About SUNRISE', title: 'High-quality Polyethylene (PE) synthetic wicker.', lead: 'SUNRISE(TM) is made beyond standard quality for outdoor furniture and indoor applications.', tech: 'Latest extrusion technology', techText: 'SUNRISE(TM) synthetic wicker is manufactured using the latest extrusion technology and high-quality chemical formulations: in-house color compounding, antioxidants, and light stabilizers for protection against UV rays.', responsible: 'Product advantages', responsibleText: 'SUNRISE(TM) synthetic wicker is highly durable, environmentally friendly, and 100% recyclable. Resistance to harsh weather conditions and temperature differences are key advantages of our product.' },
     contact: { eyebrow: 'Start a conversation', title: 'Let\u2019s build something that lasts.', text: 'Discuss specifications, colors, samples, or your next furniture collection with our team.', wa: 'Chat on WhatsApp', email: 'Send an email', address: 'Visit our facility', map: 'Open in Maps' },
     trust: {
       eyebrow: 'Why SUNRISE',
@@ -22,7 +22,7 @@ export const content = {
     },
     keyNumbers: {
       eyebrow: 'SUNRISE in numbers',
-      title: 'Measured by results.',
+      title: 'Product facts.',
       items: [
         { value: '88', label: 'Carefully developed product variants' },
         { value: '7', label: 'Distinct profile families' },
@@ -38,8 +38,6 @@ export const content = {
       message: 'Your message',
       submit: 'Send inquiry',
       selectPlaceholder: 'Select a product family',
-      hours: 'Operating hours',
-      hoursValue: 'Mon — Fri, 08:00 — 17:00 WIB',
       formTitle: 'Send us an inquiry',
       formDesc: 'Fill out the form below and our team will get back to you within one business day.',
       mapTitle: 'Our location',
@@ -52,9 +50,9 @@ export const content = {
     nav: { home: 'Beranda', about: 'Tentang', products: 'Produk', contact: 'Kontak' },
     hero: { eyebrow: 'Rotan Sintetis PE / Buatan Indonesia', title: 'Dirancang untuk melampaui cuaca.', text: 'Rotan sintetis berkualitas tinggi, dibentuk melalui ekstrusi modern, formulasi terukur, dan pemahaman mendalam tentang furnitur anyaman.', primary: 'Jelajahi produk', secondary: 'Hubungi kami' },
     benefits: ['Tahan cuaca', 'Stabilisasi UV', '100% dapat didaur ulang', 'Indoor & outdoor'],
-    about: { eyebrow: 'Dibuat melampaui standar', title: 'Inovasi material dalam setiap helai.', text: 'SUNRISE(TM) adalah rotan sintetis Polyethylene berkualitas tinggi untuk furnitur outdoor maupun aplikasi indoor. Teknologi ekstrusi terbaru memadukan pewarnaan internal, antioksidan, dan light stabilizer untuk performa tahan lama.', link: 'Kenali proses kami' },
+    about: { eyebrow: 'Tentang SUNRISE', title: 'Dibuat melampaui standar kualitas.', text: 'SUNRISE(TM) adalah rotan sintetis Polyethylene (PE) berkualitas tinggi untuk furnitur outdoor maupun aplikasi indoor. Produk ini sangat tahan lama, ramah lingkungan, 100% dapat didaur ulang, serta tahan terhadap kondisi cuaca berat dan perbedaan suhu.', link: 'Tentang SUNRISE' },
     product: { eyebrow: 'Sistem produk', title: 'Satu material. Tujuh profil. Ekspresi tanpa batas.', text: 'Jelajahi 88 kombinasi profil, warna, dimensi, dan permukaan yang dikembangkan secara teliti.', all: 'Semua profil', search: 'Cari warna atau profil', count: 'produk', more: 'Tampilkan lainnya', catalog: 'Unduh katalog', empty: 'Tidak ada produk yang cocok.' },
-    aboutPage: { eyebrow: 'Tentang SUNRISE', title: 'Tangguh menghadapi cuaca. Bebas untuk berkarya.', lead: 'Kami memproduksi rotan sintetis PE yang memberi kebebasan tekstur alami tanpa keterbatasan material alami.', tech: 'Teknologi di balik tekstur', techText: 'Proses ekstrusi kami mengendalikan bentuk, warna, dan hasil akhir secara presisi. Peracikan warna internal membangun karakter setiap helai, sementara antioksidan dan light stabilizer membantu melindungi material dari kondisi outdoor dan paparan UV.', responsible: 'Material yang lebih bertanggung jawab', responsibleText: 'Rotan SUNRISE sangat tahan lama, ramah lingkungan, dan 100% dapat didaur ulang. Usia pakai panjang dan pemulihan material menjadi bagian dari cara kami memandang kualitas.' },
+    aboutPage: { eyebrow: 'Tentang SUNRISE', title: 'Rotan sintetis Polyethylene (PE) berkualitas tinggi.', lead: 'SUNRISE(TM) dibuat melampaui standar kualitas untuk furnitur outdoor maupun aplikasi indoor.', tech: 'Teknologi ekstrusi terbaru', techText: 'Rotan sintetis SUNRISE(TM) diproduksi menggunakan teknologi ekstrusi terbaru dan formulasi bahan kimia berkualitas tinggi: peracikan warna internal, antioksidan, dan light stabilizer untuk perlindungan terhadap sinar UV.', responsible: 'Keunggulan produk', responsibleText: 'Rotan sintetis SUNRISE(TM) sangat tahan lama, ramah lingkungan, dan 100% dapat didaur ulang. Ketahanan terhadap kondisi cuaca berat dan perbedaan suhu menjadi keunggulan utama produk kami.' },
     contact: { eyebrow: 'Mulai percakapan', title: 'Mari membuat sesuatu yang bertahan lama.', text: 'Diskusikan spesifikasi, warna, sampel, atau koleksi furnitur Anda berikutnya bersama tim kami.', wa: 'Chat WhatsApp', email: 'Kirim email', address: 'Kunjungi fasilitas kami', map: 'Buka di Maps' },
     trust: {
       eyebrow: 'Mengapa SUNRISE',
@@ -68,7 +66,7 @@ export const content = {
     },
     keyNumbers: {
       eyebrow: 'SUNRISE dalam angka',
-      title: 'Diukur dari hasil.',
+      title: 'Fakta produk.',
       items: [
         { value: '88', label: 'Varian produk yang dikembangkan' },
         { value: '7', label: 'Keluarga profil berbeda' },
@@ -84,8 +82,6 @@ export const content = {
       message: 'Pesan Anda',
       submit: 'Kirim pertanyaan',
       selectPlaceholder: 'Pilih keluarga produk',
-      hours: 'Jam operasional',
-      hoursValue: 'Senin — Jumat, 08:00 — 17:00 WIB',
       formTitle: 'Kirim pertanyaan Anda',
       formDesc: 'Isi formulir di bawah dan tim kami akan menghubungi Anda dalam satu hari kerja.',
       mapTitle: 'Lokasi kami',

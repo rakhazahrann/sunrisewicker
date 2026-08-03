@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBlock from './ContactBlock.astro';
-import { ArrowDown, ArrowUpRight, Download, Leaf, Recycle, ShieldCheck, Sun, Clock, MapPin, Send } from '@lucide/astro';
+import { ArrowDown, ArrowUpRight, Leaf, Recycle, ShieldCheck, Sun, Send } from '@lucide/astro';
 import { content, pathFor, type Lang, type Page } from '../data/ui';
 import { families, familyPath, products } from '../data/products';
 interface Props { lang: Lang; page: Page }
@@ -9,7 +9,6 @@ const { lang, page } = Astro.props;
 const t = content[lang];
 const titles = { home: lang === 'en' ? 'SUNRISE | High Quality Synthetic Wicker' : 'SUNRISE | Rotan Sintetis Berkualitas Tinggi', about: `${t.nav.about} | SUNRISE`, products: `${t.nav.products} | SUNRISE`, contact: `${t.nav.contact} | SUNRISE` };
 const address = 'Kawasan Industri Dan Pergudangan SIRIE Blok S-12, Jl. Lingkar Timur KM 5, Rangkah Kidul, Sidoarjo, Jawa Timur';
-const maps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 const whatsapp = `https://wa.me/6281130939?text=${encodeURIComponent(lang === 'en' ? 'Hello SUNRISE, I would like to ask about your synthetic wicker products.' : 'Halo SUNRISE, saya ingin bertanya tentang produk rotan sintetis.')}`;
 const benefitIcons = [ShieldCheck, Sun, Recycle, Leaf];
 const surfaceOptions = [
@@ -86,8 +85,8 @@ const surfaceOptions = [
     <section class="about-simple-hero">
       <div class="about-simple-copy">
         <p class="eyebrow" data-hero-detail>{t.aboutPage.eyebrow}</p>
-        <h1><span><b data-intro>{lang === 'en' ? 'High-quality' : 'Rotan sintetis'}</b></span><span class="outline"><b data-intro>{lang === 'en' ? 'synthetic wicker.' : 'berkualitas tinggi.'}</b></span></h1>
-        <p data-hero-detail>{lang === 'en' ? 'SUNRISE(TM) is a high-quality Polyethylene (PE) synthetic wicker manufactured by PT. Karya Mandiri Indoplast for outdoor furniture and indoor applications.' : 'SUNRISE(TM) adalah rotan sintetis Polyethylene (PE) berkualitas tinggi yang diproduksi oleh PT. Karya Mandiri Indoplast untuk furnitur outdoor maupun aplikasi indoor.'}</p>
+        <h1><span><b data-intro>{lang === 'en' ? 'Made beyond' : 'Dibuat melampaui'}</b></span><span class="outline"><b data-intro>{lang === 'en' ? 'standard quality.' : 'standar kualitas.'}</b></span></h1>
+        <p data-hero-detail>{t.aboutPage.title} {t.aboutPage.lead}</p>
       </div>
       <div class="about-simple-photo" data-hero-media><img src="/images/products/Hyacinth/abacca.jpg" alt="SUNRISE synthetic wicker texture" /></div>
     </section>
@@ -104,16 +103,15 @@ const surfaceOptions = [
     </section>
 
     <section class="about-overview">
-      <div data-reveal><p class="eyebrow">{lang === 'en' ? 'About the company' : 'Tentang perusahaan'}</p><h2>{lang === 'en' ? 'Material made beyond standard quality.' : 'Material yang dibuat melampaui standar kualitas.'}</h2></div>
+      <div data-reveal><p class="eyebrow">{lang === 'en' ? 'About the product' : 'Tentang produk'}</p><h2>{t.aboutPage.responsible}</h2></div>
       <div data-reveal>
-        <p>{lang === 'en' ? 'SUNRISE(TM) synthetic wicker is highly durable, environmentally friendly, and 100% recyclable. Resistance to harsh weather conditions and temperature differences are key advantages of our product.' : 'Rotan sintetis SUNRISE(TM) sangat tahan lama, ramah lingkungan, dan 100% dapat didaur ulang. Ketahanan terhadap kondisi cuaca berat dan perbedaan suhu menjadi keunggulan utama produk kami.'}</p>
-        <p>{lang === 'en' ? 'The material is developed for furniture manufacturers seeking consistent synthetic wicker for both outdoor and indoor use.' : 'Material ini dikembangkan untuk produsen furnitur yang membutuhkan rotan sintetis konsisten untuk penggunaan outdoor maupun indoor.'}</p>
+        <p>{t.aboutPage.responsibleText}</p>
       </div>
     </section>
 
     <section class="about-production">
       <div class="about-production-photo"><img src="/images/products/Flat Oval/DSC_9455 FO 7MM IRR - BAVARIAN.JPG" alt="Bavarian flat oval SUNRISE synthetic wicker" loading="lazy" /></div>
-      <div data-reveal><p class="eyebrow">{lang === 'en' ? 'How it is made' : 'Cara produk dibuat'}</p><h2>{lang === 'en' ? 'Modern extrusion. Controlled formulation.' : 'Ekstrusi modern. Formulasi terukur.'}</h2><p>{lang === 'en' ? 'SUNRISE(TM) synthetic wicker is manufactured using the latest extrusion technology and high-quality chemical formulations, including in-house color compounding, antioxidants, and light stabilizers that help protect against UV rays.' : 'Rotan sintetis SUNRISE(TM) diproduksi menggunakan teknologi ekstrusi terbaru dan formulasi bahan kimia berkualitas tinggi, termasuk peracikan warna internal, antioksidan, serta light stabilizer yang membantu melindungi material dari sinar UV.'}</p></div>
+      <div data-reveal><p class="eyebrow">{lang === 'en' ? 'How it is made' : 'Cara produk dibuat'}</p><h2>{t.aboutPage.tech}</h2><p>{t.aboutPage.techText}</p></div>
     </section>
 
     <section class="about-benefits"><p class="eyebrow">{lang === 'en' ? 'Product advantages' : 'Keunggulan produk'}</p><div>{t.benefits.map((item,i) => <article data-reveal><span>0{i+1}</span><strong>{item}</strong></article>)}</div></section>
@@ -123,7 +121,7 @@ const surfaceOptions = [
   {page === 'products' && <>
     <section class="products-hero">
       <div><p class="eyebrow" data-hero-detail>{t.product.eyebrow}</p><h1><span><b data-intro>{lang === 'en' ? 'A considered' : 'Koleksi material'}</b></span><span class="outline"><b data-intro>{lang === 'en' ? 'material collection.' : 'yang terkurasi.'}</b></span></h1></div>
-      <div class="products-hero-side" data-hero-detail><p>{lang === 'en' ? 'Seven profile families. An extensive palette of colors, dimensions, and tactile finishes.' : 'Tujuh keluarga profil. Palet luas berisi warna, dimensi, dan hasil akhir bertekstur.'}</p><a class="button" href="/images/products/Product Catalog_r1.pdf">{t.product.catalog} <Download size={17} /></a></div>
+      <div class="products-hero-side" data-hero-detail><p>{lang === 'en' ? 'Seven profile families. An extensive palette of colors, dimensions, and tactile finishes.' : 'Tujuh keluarga profil. Palet luas berisi warna, dimensi, dan hasil akhir bertekstur.'}</p></div>
     </section>
     <section class="surface-guide" data-reveal>
       <div class="surface-guide-intro"><p class="eyebrow">{lang === 'en' ? 'Surface options' : 'Pilihan permukaan'}</p><h2>{lang === 'en' ? 'Understanding our finish codes.' : 'Memahami kode hasil akhir.'}</h2><p>{lang === 'en' ? 'These abbreviations describe the visible surface character of each wicker profile. Available options vary by product family.' : 'Singkatan ini menjelaskan karakter permukaan yang terlihat pada setiap profil rotan. Pilihan yang tersedia berbeda pada setiap keluarga produk.'}</p></div>
@@ -151,7 +149,7 @@ const surfaceOptions = [
     <section class="contact-directory">
       <a href={whatsapp} data-reveal><span>01 / WhatsApp</span><strong>+62 811 30939</strong><ArrowUpRight size={28} /></a>
       <a href="mailto:sunrisewicker@gmail.com" data-reveal><span>02 / Email</span><strong>sunrisewicker@gmail.com</strong><ArrowUpRight size={28} /></a>
-      <a href={maps} data-reveal><span>03 / {t.contact.address}</span><strong>{address}</strong><ArrowUpRight size={28} /></a>
+      <div class="contact-address" data-reveal><span>03 / {t.contact.address}</span><strong>{address}</strong></div>
     </section>
 
     <section class="contact-form-section">
@@ -159,10 +157,6 @@ const surfaceOptions = [
         <p class="eyebrow">{t.form.formTitle}</p>
         <h2>{lang === 'en' ? <>Send us a<br/><i>message.</i></> : <>Kirimkan<br/><i>pesan Anda.</i></>}</h2>
         <p>{t.form.formDesc}</p>
-        <div class="form-hours">
-          <Clock size={18} />
-          <div><strong>{t.form.hours}</strong><p>{t.form.hoursValue}</p></div>
-        </div>
       </div>
       <form class="inquiry-form" data-reveal data-form action="#" method="POST">
         <div class="form-row">
@@ -196,26 +190,6 @@ const surfaceOptions = [
       </form>
     </section>
 
-    <section class="contact-map-section" data-reveal>
-      <div class="map-info">
-        <p class="eyebrow">{t.form.mapTitle}</p>
-        <h3>PT. Karya Mandiri Indoplast</h3>
-        <p><MapPin size={16} /> {address}</p>
-        <a class="button" href={maps} target="_blank" rel="noopener">{t.contact.map} <ArrowUpRight size={16} /></a>
-      </div>
-      <div class="map-embed">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.5!2d112.75!3d-7.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjcnMDAuMCJTIDExMsKwNDUnMDAuMCJF!5e0!3m2!1sid!2sid!4v1"
-          width="100%"
-          height="100%"
-          style="border:0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title={t.form.mapTitle}>
-        </iframe>
-      </div>
-    </section>
   </>}
 </BaseLayout>
 
@@ -245,7 +219,7 @@ const surfaceOptions = [
   .hero-content { position: relative; z-index: 2; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 130px var(--pad) 68px }
   .hero-code { margin: 0 0 1.2rem; font: .65rem var(--mono); letter-spacing: .15em }
   .hero-content h1 { max-width: 1050px; margin: 0; font: 600 clamp(4.8rem,10vw,10rem)/.78 var(--display); letter-spacing: -.045em }
-  .hero-content h1 span, .editorial-copy h1 span, .products-hero h1 span, .contact-hero h1 span { display: block; overflow: hidden }
+  .hero-content h1 span, .editorial-copy h1 span, .products-hero h1 span, .contact-hero h1 span, .about-simple-copy h1 span { display: block; padding-block: .14em .2em; margin-block: -.14em -.2em; overflow: hidden }
   .hero-content h1 b, .editorial-copy h1 b, .products-hero h1 b, .contact-hero h1 b { display: block; font: inherit }
   .hero-content h1 .accent { color: #ead7af; font-style: italic }
   .hero-bottom { display: grid; grid-template-columns: minmax(280px,450px) 1fr; align-items: end; gap: 4rem; margin-top: 2.5rem }
@@ -309,10 +283,10 @@ const surfaceOptions = [
   .trust-card p { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.5 }
 
   .products-hero h1, .contact-hero h1 { margin: 0; font: 600 clamp(4.8rem,9vw,9rem)/.8 var(--display); letter-spacing: -.04em }
+  .contact-hero h1 { line-height: .94 }
   .outline { color: #d8bd88; font-style: italic }
   .about-simple-hero { min-height: 88svh; display: grid; grid-template-columns: 1fr .72fr; gap: clamp(3rem,7vw,8rem); align-items: center; padding: 130px var(--pad) 70px; color: white; background: var(--blue) }
   .about-simple-copy h1 { margin: 0; font: 600 clamp(4.6rem,8vw,8rem)/.82 var(--display); letter-spacing: -.04em }
-  .about-simple-copy h1 span { display: block; overflow: hidden }
   .about-simple-copy h1 b { display: block; font: inherit }
   .about-simple-copy > p:last-child { max-width: 650px; margin: 2.5rem 0 0; color: #d4dde5; line-height: 1.75 }
   .about-simple-photo { height: min(68vh,680px); overflow: hidden }
@@ -389,8 +363,8 @@ const surfaceOptions = [
   .contact-photo img { width: 100%; height: 100%; object-fit: cover }
   .contact-hero > p { position: relative; z-index: 2; max-width: 430px; line-height: 1.7 }
   .contact-directory { padding: 6rem var(--pad) 4rem }
-  .contact-directory a { display: grid; grid-template-columns: 210px 1fr 40px; gap: 2rem; align-items: center; padding: 2.5rem 0; border-top: 1px solid var(--line) }
-  .contact-directory a:last-child { border-bottom: 1px solid var(--line) }
+  .contact-directory a, .contact-address { display: grid; grid-template-columns: 210px 1fr 40px; gap: 2rem; align-items: center; padding: 2.5rem 0; border-top: 1px solid var(--line) }
+  .contact-directory > :last-child { border-bottom: 1px solid var(--line) }
   .contact-directory span { color: var(--orange); font: .65rem var(--mono); text-transform: uppercase }
   .contact-directory strong { font: 600 clamp(1.2rem,2.7vw,2.8rem) var(--display) }
 
@@ -399,10 +373,6 @@ const surfaceOptions = [
   .form-intro h2 { max-width: 500px; margin: 0 0 1.5rem; font: 600 clamp(3.5rem,6vw,5.5rem)/.88 var(--display); letter-spacing: -.04em }
   .form-intro h2 i { color: var(--orange); font-style: normal }
   .form-intro > p:last-of-type { color: var(--muted); line-height: 1.7; margin: 0 }
-  .form-hours { display: flex; gap: 1rem; align-items: flex-start; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--line) }
-  .form-hours :global(svg) { flex-shrink: 0; color: var(--orange); margin-top: .15rem }
-  .form-hours strong { display: block; font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em }
-  .form-hours p { margin: .3rem 0 0; color: var(--muted); font-size: .85rem }
   .inquiry-form { display: grid; gap: 1.2rem; align-content: start }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem }
   .form-field { display: flex; flex-direction: column; gap: .4rem }
@@ -421,16 +391,6 @@ const surfaceOptions = [
   .form-submit { justify-self: start; gap: .6rem; margin-top: .5rem }
 
   /* ── CONTACT MAP ── */
-  .contact-map-section { display: grid; grid-template-columns: .45fr 1fr; min-height: 480px; background: var(--ink); color: white }
-  .map-info { display: flex; flex-direction: column; justify-content: center; padding: clamp(3rem,5vw,5rem) }
-  .map-info .eyebrow { color: var(--yellow) }
-  .map-info h3 { margin: 0 0 1.2rem; font: 600 clamp(1.6rem,2.5vw,2.2rem) var(--display); text-transform: uppercase }
-  .map-info > p { display: flex; align-items: flex-start; gap: .5rem; margin: 0 0 2rem; color: #bfccd7; font-size: .85rem; line-height: 1.6 }
-  .map-info > p :global(svg) { flex-shrink: 0; margin-top: .15rem }
-  .map-info .button { color: white; border-color: rgba(255,255,255,.5); gap: .5rem; width: fit-content }
-  .map-info .button:hover { color: var(--ink); background: var(--yellow); border-color: var(--yellow) }
-  .map-embed { min-height: 400px }
-  .map-embed iframe { width: 100%; height: 100%; display: block; filter: saturate(.8) contrast(1.1) }
 
   @media (max-width: 1050px) {
     .family-strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory }
@@ -461,6 +421,7 @@ const surfaceOptions = [
     .trust-card:nth-child(odd) { border-right: 1px solid var(--line) !important }
     .products-hero, .contact-hero { grid-template-columns: 1fr; min-height: 100svh; padding-top: 120px }
     .products-hero h1, .contact-hero h1 { font-size: clamp(4.3rem,21vw,7rem) }
+    .contact-hero h1 { line-height: 1.08 }
     .contact-photo { width: 100%; opacity: .32 }
     .contact-photo::after { background: linear-gradient(0deg,var(--blue),transparent 70%) }
     .about-simple-hero, .about-overview, .about-production { grid-template-columns: 1fr }
@@ -485,11 +446,9 @@ const surfaceOptions = [
     .collection-previews { grid-column: 1/-1; grid-row: 2 }
     .collection-previews figure { height: 100px }
     .collection-name { grid-column: 1; grid-row: 1 }
-    .contact-directory a { grid-template-columns: 1fr 30px; gap: 1rem }
+    .contact-directory a, .contact-address { grid-template-columns: 1fr 30px; gap: 1rem }
     .contact-directory strong { grid-column: 1/-1; grid-row: 2 }
     .contact-form-section { grid-template-columns: 1fr; gap: 3rem }
     .form-row { grid-template-columns: 1fr }
-    .contact-map-section { grid-template-columns: 1fr }
-    .map-embed { min-height: 320px }
   }
 </style>
