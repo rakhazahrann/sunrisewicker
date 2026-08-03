@@ -9,7 +9,7 @@ const { lang, page } = Astro.props;
 const t = content[lang];
 const titles = { home: lang === 'en' ? 'SUNRISE | High Quality Synthetic Wicker' : 'SUNRISE | Rotan Sintetis Berkualitas Tinggi', about: `${t.nav.about} | SUNRISE`, products: `${t.nav.products} | SUNRISE`, contact: `${t.nav.contact} | SUNRISE` };
 const address = 'Kawasan Industri Dan Pergudangan SIRIE Blok S-12, Jl. Lingkar Timur KM 5, Rangkah Kidul, Sidoarjo, Jawa Timur';
-const whatsapp = `https://wa.me/6281130939?text=${encodeURIComponent(lang === 'en' ? 'Hello SUNRISE, I would like to ask about your synthetic wicker products.' : 'Halo SUNRISE, saya ingin bertanya tentang produk rotan sintetis.')}`;
+const whatsapp = `https://wa.me/62811327030?text=${encodeURIComponent(lang === 'en' ? 'Hello SUNRISE, I would like to ask about your synthetic wicker products.' : 'Halo SUNRISE, saya ingin bertanya tentang produk rotan sintetis.')}`;
 const benefitIcons = [ShieldCheck, Sun, Recycle, Leaf];
 const surfaceOptions = [
   ['RR', 'Regular Ribbed', 'Garis rusuk reguler'],
@@ -147,7 +147,7 @@ const surfaceOptions = [
     </section>
 
     <section class="contact-directory">
-      <a href={whatsapp} data-reveal><span>01 / WhatsApp</span><strong>+62 811 30939</strong><ArrowUpRight size={28} /></a>
+      <a href={whatsapp} data-reveal><span>01 / WhatsApp</span><strong>+62 811 327030</strong><ArrowUpRight size={28} /></a>
       <a href="mailto:sunrisewicker@gmail.com" data-reveal><span>02 / Email</span><strong>sunrisewicker@gmail.com</strong><ArrowUpRight size={28} /></a>
       <div class="contact-address" data-reveal><span>03 / {t.contact.address}</span><strong>{address}</strong></div>
     </section>
@@ -393,8 +393,9 @@ const surfaceOptions = [
   /* ── CONTACT MAP ── */
 
   @media (max-width: 1050px) {
-    .family-strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory }
-    .family-tile { min-width: 260px; min-height: 440px; scroll-snap-align: start }
+    .family-strip { display: flex; gap: .7rem; overflow-x: auto; padding-right: var(--pad); scroll-padding-inline: var(--pad); scroll-snap-type: x mandatory; overscroll-behavior-inline: contain; scrollbar-width: none }
+    .family-strip::-webkit-scrollbar { display: none }
+    .family-tile { min-width: 260px; min-height: 440px; margin-right: 0; scroll-snap-align: start }
     .material-intro { grid-template-columns: 1fr 1fr }
     .section-index { grid-column: 1/-1 }
     .performance { grid-template-columns: 1fr }
@@ -405,7 +406,7 @@ const surfaceOptions = [
   }
   @media (max-width: 750px) {
     .hero-content { padding-top: 110px; padding-bottom: 38px }
-    .hero-content h1 { font-size: clamp(4.3rem,22vw,7rem) }
+    .hero-content h1 { font-size: clamp(2.75rem,16vw,7rem); overflow-wrap: break-word }
     .hero-bottom { grid-template-columns: 1fr; gap: 1.5rem }
     .hero-spec { display: none }
     .material-intro { grid-template-columns: 1fr; padding-top: 6rem; padding-bottom: 6rem }
@@ -415,12 +416,15 @@ const surfaceOptions = [
     .macro-accent { padding: 2rem 24px }
     .families-head { grid-template-columns: 1fr; gap: 1rem }
     .family-tile { min-width: 78vw }
-    .performance { gap: 4rem }
+    .performance { gap: 3rem }
+    .collection-index { padding-bottom: 5rem }
+    .contact-directory { padding: 4rem var(--pad) 3rem }
+    .contact-directory a, .contact-address { padding: 1.8rem 0 }
     .trust-grid { grid-template-columns: 1fr 1fr }
     .trust-card { border-right: 0 !important }
     .trust-card:nth-child(odd) { border-right: 1px solid var(--line) !important }
     .products-hero, .contact-hero { grid-template-columns: 1fr; min-height: 100svh; padding-top: 120px }
-    .products-hero h1, .contact-hero h1 { font-size: clamp(4.3rem,21vw,7rem) }
+    .products-hero h1, .contact-hero h1 { font-size: clamp(2.75rem,16vw,7rem); overflow-wrap: break-word }
     .contact-hero h1 { line-height: 1.08 }
     .contact-photo { width: 100%; opacity: .32 }
     .contact-photo::after { background: linear-gradient(0deg,var(--blue),transparent 70%) }
@@ -436,19 +440,46 @@ const surfaceOptions = [
     .number-card:nth-child(even) { border-right: 0 }
     .products-hero-side { position: relative; z-index: 2 }
     .surface-guide { grid-template-columns: 1fr }
+    .surface-terms { position: relative }
     .surface-term { width: 52px; height: 52px }
-    .surface-popover { left: 0; transform: translate(0,8px) }
-    .surface-popover::after { left: 26px }
+    .surface-term { position: static }
+    .surface-popover { left: 0; right: 0; width: auto; transform: translateY(8px) }
+    .surface-popover::after { display: none }
     .surface-term:hover .surface-popover, .surface-term:focus .surface-popover, .surface-term:focus-within .surface-popover { transform: translate(0,0) }
     .collection-heading { grid-template-columns: 1fr; gap: 1rem }
     .collection-line { grid-template-columns: 1fr 25px; gap: 1rem; padding: 1.4rem 0 }
+    .collection-line:nth-of-type(even) { margin-left: 0 }
     .collection-line > span, .collection-line > strong { display: none }
     .collection-previews { grid-column: 1/-1; grid-row: 2 }
     .collection-previews figure { height: 100px }
     .collection-name { grid-column: 1; grid-row: 1 }
     .contact-directory a, .contact-address { grid-template-columns: 1fr 30px; gap: 1rem }
+    .contact-directory strong, .contact-address strong { min-width: 0; overflow-wrap: anywhere }
     .contact-directory strong { grid-column: 1/-1; grid-row: 2 }
     .contact-form-section { grid-template-columns: 1fr; gap: 3rem }
-    .form-row { grid-template-columns: 1fr }
+    .form-row { grid-template-columns: minmax(0,1fr) }
+    .form-field, .form-field select { min-width: 0 }
+  }
+  @media (max-width: 420px) {
+    .trust-grid, .numbers-grid, .about-benefits > div { grid-template-columns: 1fr }
+    .trust-card, .trust-card:nth-child(odd), .number-card, .number-card:nth-child(3n), .about-benefits article, .about-benefits article:nth-child(2) { border-right: 0 !important }
+    .macro-accent { align-items: flex-start; flex-direction: column; gap: 1.5rem }
+    .macro-accent p { max-width: none }
+    .hero-content h1 { font-size: clamp(2.2rem,13vw,5rem) }
+    .hero-bottom .actions { flex-direction: column; align-items: flex-start; gap: 1rem }
+    .products-hero h1, .contact-hero h1 { font-size: clamp(2.2rem,13vw,5rem) }
+    .about-simple-copy h1 { font-size: clamp(2.2rem,13vw,5rem) }
+    .about-numbers > h2 { font-size: clamp(2.2rem,13vw,4rem) }
+    .about-simple-photo { height: 320px }
+    .about-production-photo { min-height: 340px }
+    .macro-main { min-height: 360px }
+    .macro-note strong { font-size: clamp(1.8rem,8vw,3rem) }
+    .families-section { padding: 5rem var(--pad) }
+    .family-tile { min-width: 82vw; min-height: 380px }
+    .collection-index { padding-bottom: 4rem }
+    .contact-copy h2 { font-size: clamp(2.2rem,11vw,5rem) }
+    .form-intro h2 { font-size: clamp(2.2rem,11vw,4rem) }
+    .contact-form-section { gap: 2rem; padding-top: 4rem; padding-bottom: 4rem }
+    .surface-guide { padding: 3.5rem var(--pad) }
   }
 </style>

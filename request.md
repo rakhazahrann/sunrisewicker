@@ -11,7 +11,7 @@ against UV rays).
 - products : anda bisa lihat di iamge itu ada pdf tentang produknya, anda bisa tampilkan secara menarik
 - contact us :  email   : sunrisewicker@gmail.com   
                 address : Kawasan Industri Dan Pergudangan SIRIE Blok S-12, Jl. Lingkar Timur KM 5, Rangkah Kidul, Sidoarjo, Jawa Timur
-                wa      : +6281130939
+                wa      : 081 132 7030
 
 - Color references : Putih, Biru, Kuning, Orange
 - kata kunci : synthetic wicker , synthetic rattan , outdoor furniture, 

@@ -8,7 +8,7 @@ Dokumen ini menjadi sumber informasi produk untuk website SUNRISE. Data berasal 
 - Manufacturer: PT. Karya Mandiri Indoplast
 - Product: high-quality Polyethylene (PE) synthetic wicker
 - Applications: outdoor furniture and indoor furniture
-- Contact: sunrisewicker@gmail.com / +62 811-30939
+- Contact: sunrisewicker@gmail.com / +62 811-327030
 - Address: Kawasan Industri Dan Pergudangan SIRIE Blok S-12, Jl. Lingkar Timur KM 5, Rangkah Kidul, Sidoarjo, Jawa Timur
 
 ## Product Properties

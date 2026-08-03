@@ -26,5 +26,7 @@ const t = content[lang];
   .contact-side > p { max-width: 500px; margin: 0 0 2.5rem; line-height: 1.7 }
   .contact-side a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.2rem 0; border-top: 1px solid var(--ink); font-size: .8rem; font-weight: 600 }
   .contact-side a:last-child { border-bottom: 1px solid var(--ink) }
-  @media (max-width: 750px) { .contact-block { grid-template-columns: 1fr; gap: 3rem } .contact-copy h2 { font-size: clamp(4rem,20vw,7rem) } }
+  @media (max-width: 900px) { .contact-block { grid-template-columns: 1fr; gap: 3rem } }
+  @media (max-width: 750px) { .contact-copy h2 { font-size: clamp(2.5rem,12vw,7rem); overflow-wrap: break-word } }
+  @media (max-width: 420px) { .contact-block { padding: 4rem var(--pad) } .contact-copy h2 { font-size: clamp(2rem,11vw,4.5rem) } }
 </style>

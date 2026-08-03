@@ -10,7 +10,7 @@ const t = content[lang];
 const items = products.filter((product) => product.family === family.name);
 const surfaceNames: Record<string, string> = { RR: 'Regular Rib', FR: 'Fine Rib', IRR: 'Irregular Rib', TX: 'Textured', SM: 'Smooth', HL: 'Hairline', EBS: 'Embossed', Twisted: 'Twisted' };
 const alternate = lang === 'en' ? 'id' : 'en';
-const whatsapp = `https://wa.me/6281130939?text=${encodeURIComponent(lang === 'en' ? `Hello SUNRISE, I am interested in ${family.name}.` : `Halo SUNRISE, saya tertarik dengan ${family.name}.`)}`;
+const whatsapp = `https://wa.me/62811327030?text=${encodeURIComponent(lang === 'en' ? `Hello SUNRISE, I am interested in ${family.name}.` : `Halo SUNRISE, saya tertarik dengan ${family.name}.`)}`;
 const labels = lang === 'en' ? {
   back:'All profiles', variants:'available variants', dimension:'Dimension range', surfaces:'Surface options', colors:'colors', inquire:'Ask about this color', browse:'Browse collections', prev:'Previous collection', next:'Next collection'
 } : {
@@ -56,7 +56,7 @@ const next = families[(index + 1) % families.length];
         <div><p>{family.name}</p><h2>{product.color}</h2></div>
         <dl><div><dt>{lang === 'en' ? 'Size' : 'Ukuran'}</dt><dd>{product.dimension}</dd></div><div><dt>{lang === 'en' ? 'Type' : 'Tipe'}</dt><dd>{product.category}</dd></div></dl>
       </div>
-      <a class="variant-action" href={`https://wa.me/6281130939?text=${encodeURIComponent(lang === 'en' ? `Hello SUNRISE, I am interested in ${family.name}, color ${product.color}.` : `Halo SUNRISE, saya tertarik dengan ${family.name}, warna ${product.color}.`)}`} aria-label={`${labels.inquire}: ${product.color}`}><span>{labels.inquire}</span><ArrowUpRight size={17} stroke-width={1.8} /></a>
+      <a class="variant-action" href={`https://wa.me/62811327030?text=${encodeURIComponent(lang === 'en' ? `Hello SUNRISE, I am interested in ${family.name}, color ${product.color}.` : `Halo SUNRISE, saya tertarik dengan ${family.name}, warna ${product.color}.`)}`} aria-label={`${labels.inquire}: ${product.color}`}><span>{labels.inquire}</span><ArrowUpRight size={17} stroke-width={1.8} /></a>
     </article>)}</div>
   </section>
 
@@ -257,6 +257,7 @@ const next = families[(index + 1) % families.length];
     padding: 1rem 1.1rem;
     gap: 1rem;
   }
+  .variant-card, .variant-copy > div { min-width: 0 }
   .variant-copy p {
     margin: 0;
     font-size: .65rem;
@@ -269,6 +270,7 @@ const next = families[(index + 1) % families.length];
     font: 700 1.3rem var(--display);
     text-transform: uppercase;
     margin: .3rem 0 0;
+    overflow-wrap: break-word;
   }
   .variant-copy dl {
     margin: 0;
@@ -288,6 +290,7 @@ const next = families[(index + 1) % families.length];
     margin: 0;
     font-size: .75rem;
     font-weight: 500;
+    overflow-wrap: break-word;
   }
   /* COLLECTION PAGER */
   .collection-pager {
@@ -332,13 +335,27 @@ const next = families[(index + 1) % families.length];
   }
   @media (max-width: 650px) {
     .family-hero { padding-left: 20px; padding-right: 20px }
-    .family-facts { grid-template-columns: 1fr 1fr }
     .family-facts { grid-template-columns: 1fr }
-    .family-nav { top: 62px; padding: 8px 12px }
+    .family-nav { top: 70px; padding: 8px 12px }
+    .family-nav a { padding: .6rem .8rem; font-size: .66rem }
     .variants { padding: 4rem 18px }
-    .variant-grid { grid-template-columns: 1fr }
+    .variant-grid { grid-template-columns: minmax(0,1fr) }
+    .variant-card:nth-child(3n + 2), .variant-card:nth-child(3n) { transform: none; border-radius: 28px 28px 8px 28px }
+    .variant-card:nth-child(8n + 1) .variant-photo { height: 220px }
     .variant-photo { height: 220px }
     .collection-pager { grid-template-columns: 1fr; margin-bottom: 4rem }
     .collection-pager a:last-child { text-align: left; border-left: none; border-top: 1px solid var(--line) }
+  }
+  @media (max-width: 420px) {
+    .family-hero { min-height: auto; padding-top: 110px; padding-bottom: 40px }
+    .family-visual img { border-radius: 24px 24px 8px 24px }
+    .variant-photo { height: 200px }
+    .variant-copy { flex-direction: column }
+    .variant-copy dl { text-align: left }
+    .variant-action { font-size: .7rem }
+  }
+  @media (max-width: 380px) {
+    .variant-copy { flex-direction: column }
+    .variant-copy dl { text-align: left }
   }
 </style>
