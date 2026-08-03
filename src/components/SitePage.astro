@@ -1,16 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBlock from './ContactBlock.astro';
-import { ArrowDown, ArrowUpRight, Leaf, Recycle, ShieldCheck, Sun, Send } from '@lucide/astro';
+import { ArrowDown, ArrowUpRight, CloudRain, Recycle, Snowflake, Sun, Send, Thermometer } from '@lucide/astro';
 import { content, pathFor, type Lang, type Page } from '../data/ui';
 import { families, familyPath, products } from '../data/products';
 interface Props { lang: Lang; page: Page }
 const { lang, page } = Astro.props;
 const t = content[lang];
 const titles = { home: lang === 'en' ? 'SUNRISE | High Quality Synthetic Wicker' : 'SUNRISE | Rotan Sintetis Berkualitas Tinggi', about: `${t.nav.about} | SUNRISE`, products: `${t.nav.products} | SUNRISE`, contact: `${t.nav.contact} | SUNRISE` };
-const address = 'Kawasan Industri Dan Pergudangan SIRIE Blok S-12, Jl. Lingkar Timur KM 5, Rangkah Kidul, Sidoarjo, Jawa Timur';
 const whatsapp = `https://wa.me/62811327030?text=${encodeURIComponent(lang === 'en' ? 'Hello SUNRISE, I would like to ask about your synthetic wicker products.' : 'Halo SUNRISE, saya ingin bertanya tentang produk rotan sintetis.')}`;
-const benefitIcons = [ShieldCheck, Sun, Recycle, Leaf];
+const whatsappAlt = `https://wa.me/62811308731?text=${encodeURIComponent(lang === 'en' ? 'Hello SUNRISE, I would like to ask about your synthetic wicker products.' : 'Halo SUNRISE, saya ingin bertanya tentang produk rotan sintetis.')}`;
+const benefitIcons = [Sun, Snowflake, Recycle, Thermometer, CloudRain];
 const surfaceOptions = [
   ['RR', 'Regular Ribbed', 'Garis rusuk reguler'],
   ['FR', 'Fine Ribbed', 'Garis rusuk halus'],
@@ -24,7 +24,7 @@ const surfaceOptions = [
 <BaseLayout lang={lang} page={page} title={titles[page]} description={t.about.text}>
   {page === 'home' && <>
     <section class="home-hero">
-      <div class="hero-media" data-hero-media><img src="/images/products/Imange/20200605_133616 banana leaf.jpg" alt="SUNRISE synthetic wicker woven on outdoor furniture" /></div>
+      <div class="hero-media" data-hero-media><img src="/images/editorial/compro-outdoor-dining.jpg" alt="SUNRISE synthetic wicker dining chairs in an outdoor setting" /></div>
       <div class="hero-shade"></div>
       <div class="hero-content">
         <p class="hero-code" data-hero-detail>PE / SYNTHETIC / INDONESIA</p>
@@ -88,7 +88,7 @@ const surfaceOptions = [
         <h1><span><b data-intro>{lang === 'en' ? 'Made beyond' : 'Dibuat melampaui'}</b></span><span class="outline"><b data-intro>{lang === 'en' ? 'standard quality.' : 'standar kualitas.'}</b></span></h1>
         <p data-hero-detail>{t.aboutPage.title} {t.aboutPage.lead}</p>
       </div>
-      <div class="about-simple-photo" data-hero-media><img src="/images/products/Hyacinth/abacca.jpg" alt="SUNRISE synthetic wicker texture" /></div>
+      <div class="about-simple-photo" data-hero-media><img src="/images/editorial/compro-outdoor-lounge.jpg" alt="SUNRISE synthetic wicker lounge furniture outdoors" /></div>
     </section>
 
     <section class="about-numbers">
@@ -114,7 +114,7 @@ const surfaceOptions = [
       <div data-reveal><p class="eyebrow">{lang === 'en' ? 'How it is made' : 'Cara produk dibuat'}</p><h2>{t.aboutPage.tech}</h2><p>{t.aboutPage.techText}</p></div>
     </section>
 
-    <section class="about-benefits"><p class="eyebrow">{lang === 'en' ? 'Product advantages' : 'Keunggulan produk'}</p><div>{t.benefits.map((item,i) => <article data-reveal><span>0{i+1}</span><strong>{item}</strong></article>)}</div></section>
+    <section class="about-benefits"><p class="eyebrow">{lang === 'en' ? 'Product advantages' : 'Keunggulan produk'}</p><div>{t.benefits.map((item,i) => { const Icon = benefitIcons[i]; return <article data-reveal><span>0{i+1}</span><Icon aria-hidden="true" size={34} stroke-width={1.5} /><strong>{item}</strong></article> })}</div></section>
     <ContactBlock lang={lang} whatsapp={whatsapp} />
   </>}
 
@@ -147,9 +147,9 @@ const surfaceOptions = [
     </section>
 
     <section class="contact-directory">
-      <a href={whatsapp} data-reveal><span>01 / WhatsApp</span><strong>+62 811 327030</strong><ArrowUpRight size={28} /></a>
-      <a href="mailto:sunrisewicker@gmail.com" data-reveal><span>02 / Email</span><strong>sunrisewicker@gmail.com</strong><ArrowUpRight size={28} /></a>
-      <div class="contact-address" data-reveal><span>03 / {t.contact.address}</span><strong>{address}</strong></div>
+      <a href={whatsappAlt} data-reveal><span>01 / WhatsApp</span><strong>+62 811 308 731</strong><ArrowUpRight size={28} /></a>
+      <a href={whatsapp} data-reveal><span>02 / WhatsApp</span><strong>+62 811 327 030</strong><ArrowUpRight size={28} /></a>
+      <a href="mailto:sunrisewicker@gmail.com" data-reveal><span>03 / Email</span><strong>sunrisewicker@gmail.com</strong><ArrowUpRight size={28} /></a>
     </section>
 
     <section class="contact-form-section">
@@ -314,10 +314,11 @@ const surfaceOptions = [
   .about-production h2 { color: white }
   .about-production p { max-width: 620px; color: #c6d1dc }
   .about-benefits { padding: clamp(6rem,9vw,9rem) var(--pad) }
-  .about-benefits > div { display: grid; grid-template-columns: repeat(4,1fr); margin-top: 2rem }
+  .about-benefits > div { display: grid; grid-template-columns: repeat(5,1fr); margin-top: 2rem }
   .about-benefits article { display: grid; min-height: 170px; padding: 1.5rem; align-content: space-between; border: 1px solid var(--line); border-right: 0 }
   .about-benefits article:last-child { border-right: 1px solid var(--line) }
   .about-benefits span { color: var(--orange); font: .65rem var(--mono) }
+  .about-benefits svg { color: var(--orange) }
   .about-benefits strong { font: 600 clamp(1.4rem,2vw,2rem) var(--display) }
 
   .products-hero { min-height: 82vh; display: grid; grid-template-columns: 1fr .38fr; gap: 5rem; align-items: end; padding: 150px var(--pad) 70px; color: white; background: var(--ink) }
@@ -363,7 +364,7 @@ const surfaceOptions = [
   .contact-photo img { width: 100%; height: 100%; object-fit: cover }
   .contact-hero > p { position: relative; z-index: 2; max-width: 430px; line-height: 1.7 }
   .contact-directory { padding: 6rem var(--pad) 4rem }
-  .contact-directory a, .contact-address { display: grid; grid-template-columns: 210px 1fr 40px; gap: 2rem; align-items: center; padding: 2.5rem 0; border-top: 1px solid var(--line) }
+  .contact-directory a { display: grid; grid-template-columns: 210px 1fr 40px; gap: 2rem; align-items: center; padding: 2.5rem 0; border-top: 1px solid var(--line) }
   .contact-directory > :last-child { border-bottom: 1px solid var(--line) }
   .contact-directory span { color: var(--orange); font: .65rem var(--mono); text-transform: uppercase }
   .contact-directory strong { font: 600 clamp(1.2rem,2.7vw,2.8rem) var(--display) }
@@ -419,7 +420,7 @@ const surfaceOptions = [
     .performance { gap: 3rem }
     .collection-index { padding-bottom: 5rem }
     .contact-directory { padding: 4rem var(--pad) 3rem }
-    .contact-directory a, .contact-address { padding: 1.8rem 0 }
+    .contact-directory a { padding: 1.8rem 0 }
     .trust-grid { grid-template-columns: 1fr 1fr }
     .trust-card { border-right: 0 !important }
     .trust-card:nth-child(odd) { border-right: 1px solid var(--line) !important }
@@ -453,8 +454,8 @@ const surfaceOptions = [
     .collection-previews { grid-column: 1/-1; grid-row: 2 }
     .collection-previews figure { height: 100px }
     .collection-name { grid-column: 1; grid-row: 1 }
-    .contact-directory a, .contact-address { grid-template-columns: 1fr 30px; gap: 1rem }
-    .contact-directory strong, .contact-address strong { min-width: 0; overflow-wrap: anywhere }
+    .contact-directory a { grid-template-columns: 1fr 30px; gap: 1rem }
+    .contact-directory strong { min-width: 0; overflow-wrap: anywhere }
     .contact-directory strong { grid-column: 1/-1; grid-row: 2 }
     .contact-form-section { grid-template-columns: 1fr; gap: 3rem }
     .form-row { grid-template-columns: minmax(0,1fr) }
