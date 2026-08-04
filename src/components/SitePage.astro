@@ -88,7 +88,7 @@ const surfaceOptions = [
         <h1><span><b data-intro>{lang === 'en' ? 'Made beyond' : 'Dibuat melampaui'}</b></span><span class="outline"><b data-intro>{lang === 'en' ? 'standard quality.' : 'standar kualitas.'}</b></span></h1>
         <p data-hero-detail>{t.aboutPage.title} {t.aboutPage.lead}</p>
       </div>
-      <div class="about-simple-photo" data-hero-media><img src="/images/editorial/compro-outdoor-lounge.jpg" alt="SUNRISE synthetic wicker lounge furniture outdoors" /></div>
+      <div class="about-simple-photo" data-hero-media><img src="/images/editorial/compro-outdoor-lounge.jpg" alt="SUNRISE synthetic wicker lounge furniture outdoors" /><span class="photo-credit">©Skyline</span></div>
     </section>
 
     <section class="about-numbers">
@@ -289,8 +289,9 @@ const surfaceOptions = [
   .about-simple-copy h1 { margin: 0; font: 600 clamp(4.6rem,8vw,8rem)/.82 var(--display); letter-spacing: -.04em }
   .about-simple-copy h1 b { display: block; font: inherit }
   .about-simple-copy > p:last-child { max-width: 650px; margin: 2.5rem 0 0; color: #d4dde5; line-height: 1.75 }
-  .about-simple-photo { height: min(68vh,680px); overflow: hidden }
+  .about-simple-photo { position: relative; height: min(68vh,680px); overflow: hidden }
   .about-simple-photo img { width: 100%; height: 100%; object-fit: cover }
+  .photo-credit { position: absolute; right: .6rem; bottom: .5rem; color: white; font: 500 .65rem/1 var(--sans); text-shadow: 0 1px 3px rgb(0 0 0 / .65) }
 
   /* ── ABOUT KEY NUMBERS ── */
   .about-numbers { padding: clamp(6rem,10vw,10rem) var(--pad); background: var(--ink); color: white }
