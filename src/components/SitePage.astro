@@ -28,7 +28,7 @@ const surfaceOptions = [
       <div class="hero-shade"></div>
       <div class="hero-content">
         <p class="hero-code" data-hero-detail>PE / SYNTHETIC / INDONESIA</p>
-        <h1><span><b data-intro>{lang === 'en' ? 'Crafted for' : 'Dirancang untuk'}</b></span><span class="accent"><b data-intro>{lang === 'en' ? 'enduring spaces.' : 'ruang berkelas.'}</b></span></h1>
+        <h1><span><b data-intro>{lang === 'en' ? 'Crafted for' : 'Dirancang untuk'}</b></span><span class="accent"><b data-intro>{lang === 'en' ? 'enduring spaces' : 'ruang berkelas.'}</b></span></h1>
         <div class="hero-bottom" data-hero-detail>
           <p>{t.hero.text}</p>
           <div class="actions"><a class="button hero-primary" href={pathFor(lang,'products')}>{t.hero.primary} <ArrowUpRight size={17} /></a><a class="hero-scroll" href="#material"><ArrowDown size={18} /> {lang === 'en' ? 'See the material' : 'Lihat material'}</a></div>
@@ -39,18 +39,18 @@ const surfaceOptions = [
 
     <section class="material-intro" id="material">
       <div class="section-index" data-reveal><span>01</span><p>{lang === 'en' ? 'Built beyond standard' : 'Dibuat melampaui standar'}</p></div>
-      <div data-reveal><p class="eyebrow">{t.about.eyebrow}</p><h2 class="section-title">{lang === 'en' ? <>Nature's character.<br/><i>Engineered control.</i></> : <>Karakter alami.<br/><i>Kontrol terukur.</i></>}</h2></div>
+      <div data-reveal><p class="eyebrow">{t.about.eyebrow}</p><h2 class="section-title">{lang === 'en' ? <>Nature's character.<br/><i>Engineered control</i></> : <>Karakter alami.<br/><i>Kontrol terukur.</i></>}</h2></div>
       <div class="material-copy" data-reveal><p>{t.about.text}</p><a class="text-link" href={pathFor(lang,'about')}>{t.about.link} <ArrowUpRight size={16} /></a></div>
     </section>
 
     <section class="macro-grid">
       <div class="macro-main"><img src="/images/products/Hyacinth/abacca.jpg" alt="Macro detail of Abacca synthetic wicker weave" loading="lazy" /></div>
-      <div class="macro-note" data-reveal><span>MACRO / 01</span><strong>{lang === 'en' ? 'Texture without compromise.' : 'Tekstur tanpa kompromi.'}</strong><p>{lang === 'en' ? 'Consistent form. Natural depth. Built for repeatable production.' : 'Bentuk konsisten. Kedalaman alami. Dibuat untuk produksi berulang.'}</p></div>
+      <div class="macro-note" data-reveal><span>MACRO / 01</span><strong>{lang === 'en' ? 'Texture without compromise' : 'Tekstur tanpa kompromi.'}</strong><p>{lang === 'en' ? 'Consistent form. Natural depth. Built for repeatable production.' : 'Bentuk konsisten. Kedalaman alami. Dibuat untuk produksi berulang.'}</p></div>
       <div class="macro-accent"><span>100%</span><p>{lang === 'en' ? 'Recyclable PE material' : 'Material PE dapat didaur ulang'}</p></div>
     </section>
 
     <section class="families-section">
-      <div class="families-head" data-reveal><div><p class="eyebrow">{t.product.eyebrow}</p><h2 class="section-title">{lang === 'en' ? 'Choose your profile.' : 'Pilih profil Anda.'}</h2></div><p>{t.product.text}</p></div>
+      <div class="families-head" data-reveal><div><p class="eyebrow">{t.product.eyebrow}</p><h2 class="section-title">{lang === 'en' ? 'Choose your profile' : 'Pilih profil Anda.'}</h2></div><p>{t.product.text}</p></div>
       <div class="family-strip">{families.map((family, i) => <a href={familyPath(lang,family.slug)} class="family-tile" data-reveal>
         <img src={family.image} alt={`${family.name} synthetic wicker`} loading="lazy" />
         <span class="family-no">{String(i+1).padStart(2,'0')}</span><div><h3>{family.name}</h3><p>{family.spec} / {family.surfaces.join(' · ')}</p></div><ArrowUpRight size={20} />
@@ -85,7 +85,7 @@ const surfaceOptions = [
     <section class="about-simple-hero">
       <div class="about-simple-copy">
         <p class="eyebrow" data-hero-detail>{t.aboutPage.eyebrow}</p>
-        <h1><span><b data-intro>{lang === 'en' ? 'Made beyond' : 'Dibuat melampaui'}</b></span><span class="outline"><b data-intro>{lang === 'en' ? 'standard quality.' : 'standar kualitas.'}</b></span></h1>
+        <h1><span><b data-intro>{lang === 'en' ? 'Made beyond' : 'Dibuat melampaui'}</b></span><span class="outline"><b data-intro>{lang === 'en' ? 'standard quality' : 'standar kualitas.'}</b></span></h1>
         <p data-hero-detail>{t.aboutPage.title} {t.aboutPage.lead}</p>
       </div>
       <div class="about-simple-photo" data-hero-media><img src="/images/editorial/compro-outdoor-lounge.jpg" alt="SUNRISE synthetic wicker lounge furniture outdoors" /><span class="photo-credit">©Skyline</span></div>
@@ -120,11 +120,11 @@ const surfaceOptions = [
 
   {page === 'products' && <>
     <section class="products-hero">
-      <div><p class="eyebrow" data-hero-detail>{t.product.eyebrow}</p><h1><span><b data-intro>{lang === 'en' ? 'A considered' : 'Koleksi material'}</b></span><span class="outline"><b data-intro>{lang === 'en' ? 'material collection.' : 'yang terkurasi.'}</b></span></h1></div>
+      <div><p class="eyebrow" data-hero-detail>{t.product.eyebrow}</p><h1><span><b data-intro>{lang === 'en' ? 'A considered' : 'Koleksi material'}</b></span><span class="outline"><b data-intro>{lang === 'en' ? 'material collection' : 'yang terkurasi.'}</b></span></h1></div>
       <div class="products-hero-side" data-hero-detail><p>{lang === 'en' ? 'Seven profile families. An extensive palette of colors, dimensions, and tactile finishes.' : 'Tujuh keluarga profil. Palet luas berisi warna, dimensi, dan hasil akhir bertekstur.'}</p></div>
     </section>
     <section class="surface-guide" data-reveal>
-      <div class="surface-guide-intro"><p class="eyebrow">{lang === 'en' ? 'Surface options' : 'Pilihan permukaan'}</p><h2>{lang === 'en' ? 'Understanding our finish codes.' : 'Memahami kode hasil akhir.'}</h2><p>{lang === 'en' ? 'These abbreviations describe the visible surface character of each wicker profile. Available options vary by product family.' : 'Singkatan ini menjelaskan karakter permukaan yang terlihat pada setiap profil rotan. Pilihan yang tersedia berbeda pada setiap keluarga produk.'}</p></div>
+      <div class="surface-guide-intro"><p class="eyebrow">{lang === 'en' ? 'Surface options' : 'Pilihan permukaan'}</p><h2>{lang === 'en' ? 'Understanding our finish codes' : 'Memahami kode hasil akhir.'}</h2><p>{lang === 'en' ? 'These abbreviations describe the visible surface character of each wicker profile. Available options vary by product family.' : 'Singkatan ini menjelaskan karakter permukaan yang terlihat pada setiap profil rotan. Pilihan yang tersedia berbeda pada setiap keluarga produk.'}</p></div>
       <div class="surface-terms" aria-label={lang === 'en' ? 'Surface code definitions' : 'Definisi kode permukaan'}>{surfaceOptions.map(([code, name, description]) => <div class="surface-term" tabindex="0" aria-describedby={`surface-${code}`}>
         <span>{code}</span>
         <div class="surface-popover" id={`surface-${code}`} role="tooltip"><strong>{name}</strong><p>{lang === 'en' ? ({ RR: 'A regular ribbed surface.', FR: 'A finer ribbed surface.', IRR: 'An irregular ribbed surface.', TX: 'A visibly textured surface.', SM: 'A smooth surface finish.', HL: 'A fine hairline or brushed appearance.', EBS: 'A raised embossed surface pattern.' } as Record<string,string>)[code] : description}</p></div>
@@ -141,7 +141,7 @@ const surfaceOptions = [
 
   {page === 'contact' && <>
     <section class="contact-hero">
-      <div><p class="eyebrow" data-hero-detail>{t.contact.eyebrow}</p><h1><span><b data-intro>{lang === 'en' ? 'Begin your' : 'Mulai proyek'}</b></span><span class="orange-text"><b data-intro>{lang === 'en' ? 'next collection.' : 'Anda berikutnya.'}</b></span></h1></div>
+      <div><p class="eyebrow" data-hero-detail>{t.contact.eyebrow}</p><h1><span><b data-intro>{lang === 'en' ? 'Begin your' : 'Mulai proyek'}</b></span><span class="orange-text"><b data-intro>{lang === 'en' ? 'next collection' : 'Anda berikutnya.'}</b></span></h1></div>
       <div class="contact-photo" data-hero-media><img src="/images/products/Hyacinth/stone black.jpg" alt="Stone black SUNRISE wicker texture" /></div>
       <p data-hero-detail>{t.contact.text}</p>
     </section>
@@ -155,7 +155,7 @@ const surfaceOptions = [
     <section class="contact-form-section">
       <div class="form-intro" data-reveal>
         <p class="eyebrow">{t.form.formTitle}</p>
-        <h2>{lang === 'en' ? <>Send us a<br/><i>message.</i></> : <>Kirimkan<br/><i>pesan Anda.</i></>}</h2>
+        <h2>{lang === 'en' ? <>Send us a<br/><i>message</i></> : <>Kirimkan<br/><i>pesan Anda.</i></>}</h2>
         <p>{t.form.formDesc}</p>
       </div>
       <form class="inquiry-form" data-reveal data-form action="#" method="POST">

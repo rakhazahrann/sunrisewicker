@@ -12,7 +12,7 @@ export const content = {
     contact: { eyebrow: 'Start a conversation', title: 'Let\u2019s build something that lasts.', text: 'Discuss specifications, colors, samples, or your next furniture collection with our team.', wa: 'Chat on WhatsApp', email: 'Send an email' },
     trust: {
       eyebrow: 'Why SUNRISE',
-      title: 'Built on experience.',
+      title: 'Built on experience',
       text: 'Numbers that reflect our commitment to quality and consistency.',
       stats: [
         { value: '88', label: 'Product variants', desc: 'Colors, profiles & surfaces' },
@@ -41,7 +41,10 @@ export const content = {
       formTitle: 'Send us an inquiry',
       formDesc: 'Fill out the form below and our team will get back to you within one business day.',
     },
-    footer: 'High-quality PE synthetic wicker by PT. Karya Mandiri Indoplast.',
+    footer: {
+      desc: 'High-quality PE synthetic wicker',
+      by: 'by PT. Karya Mandiri Indoplast.',
+    },
     backToTop: 'Back to top',
     requestSample: 'Request sample',
   },
@@ -84,7 +87,10 @@ export const content = {
       formTitle: 'Kirim pertanyaan Anda',
       formDesc: 'Isi formulir di bawah dan tim kami akan menghubungi Anda dalam satu hari kerja.',
     },
-    footer: 'Rotan sintetis PE berkualitas tinggi oleh PT. Karya Mandiri Indoplast.',
+    footer: {
+      desc: 'Rotan sintetis PE berkualitas tinggi',
+      by: 'oleh PT. Karya Mandiri Indoplast.',
+    },
     backToTop: 'Kembali ke atas',
     requestSample: 'Minta sampel',
   },

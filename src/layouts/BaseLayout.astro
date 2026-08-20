@@ -80,7 +80,7 @@ const alternate = lang === 'en' ? 'id' : 'en';
         <div class="footer-grid">
           <div class="footer-brand">
             <a href={pathFor(lang, 'home')} aria-label={lang === 'en' ? 'SUNRISE home' : 'Beranda SUNRISE'}><img src="/images/logo/sunrise-logo.png" alt="SUNRISE Synthetic Wicker" /></a>
-            <p>{t.footer}</p>
+            <p>{t.footer.desc}<br />{t.footer.by}</p>
           </div>
           <nav class="footer-nav" aria-label={lang === 'en' ? 'Footer navigation' : 'Navigasi footer'}>
             <strong>{lang === 'en' ? 'Company' : 'Perusahaan'}</strong>
