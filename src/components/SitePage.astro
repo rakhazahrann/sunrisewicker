@@ -59,7 +59,7 @@ const surfaceOptions = [
     </section>
 
     <section class="performance">
-      <div class="performance-title" data-reveal><p class="eyebrow">PE / PERFORMANCE</p><h2>{lang === 'en' ? <>Enduring quality,<br/><mark>considered beauty.</mark></> : <>Kualitas tahan lama,<br/><mark>keindahan terukur.</mark></>}</h2></div>
+      <div class="performance-title" data-reveal><p class="eyebrow">PE / PERFORMANCE</p><h2>{lang === 'en' ? <>Enduring quality,<br/><mark>considered beauty</mark></> : <>Kualitas tahan lama,<br/><mark>keindahan terukur.</mark></>}</h2></div>
       <div class="benefit-list">{t.benefits.map((item, i) => { const Icon = benefitIcons[i]; return <div data-reveal><Icon size={26} stroke-width={1.5} /><span>{String(i+1).padStart(2,'0')}</span><strong>{item}</strong></div> })}</div>
     </section>
 
